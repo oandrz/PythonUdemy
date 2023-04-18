@@ -30,7 +30,7 @@ resources = {
     "water": 300,
     "milk": 200,
     "coffee": 100,
-    "money": 0
+    "money": 0.0
 }
 
 """
@@ -62,6 +62,8 @@ KEY_WATER = "water"
 KEY_MILK = "milk"
 KEY_COFFEE = "coffee"
 KEY_MONEY = "money"
+KEY_INGREDIENTS = "ingredients"
+KEY_COST = "cost"
 
 class CoffeeMenu(Enum):
     ESPRESSO = "espresso"
@@ -71,30 +73,62 @@ class CoffeeMenu(Enum):
     OFF = "off"
 
 
-def handle_drink(menu):
-    print("handle_drink")
-
-
 def handle_report():
     print(f'''
-Water: "{resources[KEY_WATER]}ml"
-Milk: "{resources[KEY_MILK]}ml"
-Coffee: "{resources[KEY_COFFEE]}ml"
+Water: "{resources[KEY_WATER]} ml"
+Milk: "{resources[KEY_MILK]} ml"
+Coffee: "{resources[KEY_COFFEE]} ml"
 Money: "${resources[KEY_MONEY]}"
     ''')
 
 
 def handle_action(action):
     if action.lower() == CoffeeMenu.ESPRESSO.value:
-        print("espresso")
+        handle_order(CoffeeMenu.ESPRESSO.value)
     elif action.lower() == CoffeeMenu.LATTE.value:
-        print("latte")
+        handle_order(CoffeeMenu.LATTE.value)
     elif action.lower() == CoffeeMenu.CAPPUCCINO.value:
-        print("latte")
+        handle_order(CoffeeMenu.CAPPUCCINO.value)
     elif action.lower() == CoffeeMenu.REPORT.value:
+        print("Thank you for using our services!")
         handle_report()
+    elif action.lower() == "exit":
+        exit()
     else:
         print("The machine doesn't has that functionality")
+
+def validate_payment(type, quarters, dimes, nickles, pennies):
+    total_money = 0.0
+    total_money += float(quarters) * 0.25
+    total_money += float(dimes) * 0.10
+    total_money += float(nickles) * 0.05
+    total_money += float(pennies) * 0.01
+
+    required_balance = MENU[type][KEY_COST]
+
+    return total_money - required_balance
+
+def process_order(type):
+    print(f"Here is your {type} ☕️. Enjoy!")
+    resources[KEY_MILK] -= MENU[type][KEY_INGREDIENTS].get(KEY_MILK, 0)
+    resources[KEY_WATER] -= MENU[type][KEY_INGREDIENTS].get(KEY_WATER, 0)
+    resources[KEY_COFFEE] -= MENU[type][KEY_INGREDIENTS].get(KEY_COFFEE, 0)
+
+    resources[KEY_MONEY] += MENU[type][KEY_COST]
+
+def handle_order(type):
+    print("Please insert coins.")
+    quarters = input("how many quarters?: ")
+    dimes = input("how many dimes?: ")
+    nickles = input("how many nickles?: ")
+    pennies = input("how many pennies?: ")
+
+    change = validate_payment(type, quarters, dimes, nickles, pennies)
+    if change >= 0:
+        process_order(type)
+        print(f"Here is ${round(change, 2)} in change.")
+    else:
+        print("Sorry that's not enough money. Money refunded.")
 
 
 if __name__ == "__main__":
