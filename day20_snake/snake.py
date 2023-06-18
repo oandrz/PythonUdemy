@@ -11,10 +11,10 @@ class Snake:
     # reference will be saved
     def __init__(self):
         self.body_segments = []
-        self.createSnake()
+        self.create_snake()
         self.head = self.body_segments[0]
 
-    def createSnake(self):
+    def create_snake(self):
         x_pos = 0
         y_pos = 0
         for i in range(3):
@@ -60,4 +60,11 @@ class Snake:
         print(self.head.heading)
         if self.head.heading() != LEFT_DIRECTION:
             self.head.setheading(RIGHT_DIRECTION)
+
+    def reset(self):
+        for seg in self.body_segments:
+            seg.goto(1000, 1000)
+        self.body_segments.clear()
+        self.create_snake()
+        self.head = self.body_segments[0]
 
