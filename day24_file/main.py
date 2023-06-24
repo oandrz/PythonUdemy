@@ -7,7 +7,7 @@ file.close() # tell the system to close down the file
 other format: it always close down file once we finish using them
 '''
 
-d
+
 
 '''
     to write, if file doesn't exist when read file then it will automatically created
