@@ -30,4 +30,4 @@ while len(guessed_states) < states_count:
 
 # Check not in given array
 missing_state = states_data[~states_data["state"].isin(guessed_states)]["state"]
-missing_state.to_csv("./data/learn.csv")
+missing_state.to_csv("./data/learn.files")

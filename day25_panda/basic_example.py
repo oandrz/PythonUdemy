@@ -4,8 +4,8 @@ import csv
 '''
 Read CSV using CSV python builtin
 '''
-# with open("weather_data.csv") as file:
-#     weather_data = csv.reader(file)
+# with open("weather_data.files") as file:
+#     weather_data = files.reader(file)
 #     temperatures = []
 #     for row in weather_data:
 #         if row[1].isdigit():
@@ -71,4 +71,4 @@ data_dict = {
 }
 student_data = pandas.DataFrame(data_dict)
 print(student_data)
-student_data.to_csv("new_data.csv")
+student_data.to_csv("new_data.files")
