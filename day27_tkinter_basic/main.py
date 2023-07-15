@@ -31,7 +31,11 @@ button.config(pady=0, padx=10)
 
 #Entries
 entry = Entry(width=30)
-#Add some text to begin with
+'''
+Add some text to begin with
+END -> represent ends of char, cursor will start at end of the hint
+0 -> represents start of char, cursor will start at start of the hint
+'''
 entry.insert(END, string="Some text to begin with.")
 #Gets text in entry
 print(entry.get())
