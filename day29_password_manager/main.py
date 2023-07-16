@@ -5,6 +5,22 @@ from password_generator import generate_password
 import pyperclip
 
 
+def handle_search_error(error):
+    messagebox.showerror(title=error[0], message=error[1])
+
+
+def handle_success(credential):
+    messagebox.showinfo(
+        title="Your password",
+        message=f"These are your detail\nemail:{credential['email']}\npassword:{credential['password']}\n"
+    )
+
+
+def search_password():
+    key = website_entry.get()
+    dm.getPasswordForUrl(key, handle_error=handle_search_error, handle_success=handle_success)
+
+
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 def handle_generate_pass():
     generated_pass = generate_password()
@@ -16,7 +32,7 @@ def handle_generate_pass():
 
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
-dm = DataManager(path="./cache/data.txt")
+dm = DataManager(path="./cache/data.json")
 
 
 def handle_validation(field):
@@ -64,7 +80,10 @@ website_label = Label(text="Website")
 website_label.grid(row=1, column=0)
 website_entry = Entry(width=35)
 website_entry.focus()  # focus to here when apps start
-website_entry.grid(row=1, column=1, columnspan=2)
+website_entry.grid(row=1, column=1)
+
+search_button = Button(text="Search", width=13, command=search_password)
+search_button.grid(row=1, column=2)
 
 email_label = Label(text="Email/Username")
 email_label.grid(row=2, column=0)

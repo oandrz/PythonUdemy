@@ -27,5 +27,9 @@ alph_dict = {row.letter: row.code for (index, row) in nato_frame.iterrows()}
 
 #TODO 2. Create a list of the phonetic code words from a word that the user inputs.
 name = input("What is your name ?").upper()
-name_phonetic = [alph_dict[c] for c in name if c != ' ']
-print(name_phonetic)
+try:
+    name_phonetic = [alph_dict[c] for c in name if c != ' ']
+except KeyError:
+    print("Only alphabet allowed")
+else:
+    print(name_phonetic)
