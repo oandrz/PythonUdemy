@@ -61,7 +61,7 @@ while True:
             connection.login(user=my_email, password=password)
             connection.sendmail(
                 from_addr=my_email,
-                to_addrs="oentoro.andreas@gmail.com",
+                to_addrs="",
                 msg="Hey man, look up!"
             )
             print("email send successfully")
