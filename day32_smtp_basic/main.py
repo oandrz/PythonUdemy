@@ -1,7 +1,7 @@
 import smtplib
 
-my_email = "blaze796@gmail.com"
-password = "qlcvojtcnquhawec"
+my_email = ""
+password = ""
 
 # Provide the host of mail smtp
 connection = smtplib.SMTP("smtp.gmail.com")
