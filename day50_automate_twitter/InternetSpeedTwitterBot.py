@@ -39,13 +39,13 @@ class InternetSpeedTwitterBot:
         email_input = self.driver.find_element(By.CSS_SELECTOR, value='[class="r-30o5oe r-1niwhzg r-17gur6a r-1yadl64 r-deolkf r-homxoj r-poiln3 r-7cikom r-1ny4l3l r-t60dpp r-1dz5y72 r-fdjqy7 r-13qz1uu"]')
         email_input.send_keys(TWITTER_EMAIL)
 
-        next_button = self.driver.find_element(By.CSS_SELECTOR, value='[class="css-18t94o4 css-1dbjc4n r-sdzlij r-1phboty r-rs99b7 r-ywje51 r-usiww2 r-2yi16 r-1qi8awa r-1ny4l3l r-ymttw5 r-o7ynqc r-6416eg r-lrvibr r-13qz1uu"]')
+        next_button = self.driver.find_element(By.CSS_SELECTOR, value='[class="static-18t94o4 static-1dbjc4n r-sdzlij r-1phboty r-rs99b7 r-ywje51 r-usiww2 r-2yi16 r-1qi8awa r-1ny4l3l r-ymttw5 r-o7ynqc r-6416eg r-lrvibr r-13qz1uu"]')
         next_button.click()
 
-        username_input = self.driver.find_element(By.CSS_SELECTOR, value='[class="css-901oao r-1awozwy r-1nao33i r-6koalj r-37j5jr r-1inkyih r-16dba41 r-135wba7 r-bcqeeo r-13qz1uu r-qvutc0"]')
+        username_input = self.driver.find_element(By.CSS_SELECTOR, value='[class="static-901oao r-1awozwy r-1nao33i r-6koalj r-37j5jr r-1inkyih r-16dba41 r-135wba7 r-bcqeeo r-13qz1uu r-qvutc0"]')
         username_input.send_keys("")
 
-        next_button_username = self.driver.find_element(By.CSS_SELECTOR, value='[class="css-901oao r-1awozwy r-6koalj r-18u37iz r-16y2uox r-37j5jr r-a023e6 r-b88u0q r-1777fci r-rjixqe r-bcqeeo r-q4m81j r-qvutc0"]')
+        next_button_username = self.driver.find_element(By.CSS_SELECTOR, value='[class="static-901oao r-1awozwy r-6koalj r-18u37iz r-16y2uox r-37j5jr r-a023e6 r-b88u0q r-1777fci r-rjixqe r-bcqeeo r-q4m81j r-qvutc0"]')
         next_button_username.click()
 
         input("Press Enter when Done Login")
@@ -54,5 +54,5 @@ class InternetSpeedTwitterBot:
         password_input = self.driver.find_element(By.CSS_SELECTOR, value='[class="r-30o5oe r-1niwhzg r-17gur6a r-1yadl64 r-deolkf r-homxoj r-poiln3 r-7cikom r-1ny4l3l r-t60dpp r-1dz5y72 r-fdjqy7 r-13qz1uu"]')
         password_input.send_keys(TWITTER_PASSWORD)
 
-        login_button = self.driver.find_element(By.CSS_SELECTOR, value='[class="css-901oao r-1awozwy r-6koalj r-18u37iz r-16y2uox r-37j5jr r-a023e6 r-b88u0q r-1777fci r-rjixqe r-bcqeeo r-q4m81j r-qvutc0"]')
+        login_button = self.driver.find_element(By.CSS_SELECTOR, value='[class="static-901oao r-1awozwy r-6koalj r-18u37iz r-16y2uox r-37j5jr r-a023e6 r-b88u0q r-1777fci r-rjixqe r-bcqeeo r-q4m81j r-qvutc0"]')
         login_button.click()
